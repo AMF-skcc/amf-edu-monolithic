@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.amf.edu.monolithic.domain.repository.MemberRepository">
+
+    <select id="selectAllMember" resultType="Member">
+        SELECT M.ID
+             , M.NAME
+             , M.ROLE
+             , T.NAME AS TEAM_NAME
+		  FROM MEMBER M
+		LEFT OUTER JOIN TEAM T
+		ON M.TEAM_ID = T.ID
+    </select>
+
+    <select id="selectMemberById" resultType="Member">
+        SELECT M.ID
+             , M.NAME
+             , M.ROLE
+             , T.NAME AS TEAM_NAME
+		  FROM MEMBER M
+		LEFT OUTER JOIN TEAM T
+		ON M.TEAM_ID = T.ID
+         WHERE M.ID = #{id}
+    </select>
+
+</mapper>
