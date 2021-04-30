@@ -1,1 +1,1 @@
-# factory-edu-monolithic
+# amf-edu-monolithic
