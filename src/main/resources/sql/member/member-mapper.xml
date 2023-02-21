@@ -26,4 +26,38 @@
          WHERE M.ID = #{id}
     </select>
 
+    <insert id="createMember">
+        INSERT INTO
+            MEMBER(ID
+                 , NAME
+                 , TEAM_ID
+                 , ROLE)
+        VALUES (
+                #{id},
+                #{name},
+                select t.id
+                    from TEAM t
+                    where t.name = #{teamName},
+                #{role}
+                )
+    </insert>
+
+    <update id="updateMember">
+        UPDATE MEMBER
+        SET
+            NAME = #{member.name}
+          , TEAM_ID = (select t.id
+                       from TEAM t
+                       where t.name = #{member.teamName})
+          , ROLE = #{member.role}
+        WHERE
+            ID = #{memberId}
+    </update>
+
+    <delete id="deleteMember">
+        DELETE FROM MEMBER
+        WHERE
+            ID = #{memberId}
+    </delete>
+
 </mapper>

@@ -12,4 +12,10 @@ import com.example.amf.edu.monolithic.domain.model.Member;
 public interface MemberRepository {
 	List<Member> selectAllMember();
 	Member selectMemberById(Long id);
+
+    Integer createMember(Member member);
+
+	Integer updateMember(Long memberId, Member member);
+
+	Integer deleteMember(Long memberId);
 }
