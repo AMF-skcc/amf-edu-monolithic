@@ -8,4 +8,10 @@ public interface AdminService {
 	Admin selectAdminByEmail(String email);
 	Admin selectAdminById(Long id);
 	List<Admin> selectAllAdmin();
+
+    Admin createAdmin(Admin admin);
+
+	Admin updateAdmin(Long adminId, Admin admin);
+
+	Boolean deleteAdmin(Long adminId);
 }

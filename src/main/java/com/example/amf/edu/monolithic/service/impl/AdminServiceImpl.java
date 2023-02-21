@@ -30,4 +30,28 @@ public class AdminServiceImpl implements AdminService {
 		return adminRepository.selectAllAdmin();
 	}
 
+	@Override
+	public Admin createAdmin(Admin admin) {
+		Integer result = adminRepository.createAdmin(admin);
+		if (result == null || 0 == result) {
+			return null;
+		}
+		return selectAdminById(admin.getId());
+	}
+
+	@Override
+	public Admin updateAdmin(Long adminId, Admin admin) {
+		Integer result = adminRepository.updateAdmin(adminId, admin);
+		if (result == null || 0 == result) {
+			return null;
+		}
+		return selectAdminById(admin.getId());
+	}
+
+	@Override
+	public Boolean deleteAdmin(Long adminId) {
+		Integer result = adminRepository.deleteAdmin(adminId);
+		return result != null && 0 != result;
+	}
+
 }

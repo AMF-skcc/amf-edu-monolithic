@@ -13,7 +13,7 @@
           FROM ADMIN
          WHERE EMAIL = #{email}
     </select>
-    
+
     <select id="selectAdminById" resultType="Admin">
         SELECT ID
              , NAME
@@ -22,7 +22,7 @@
           FROM ADMIN
          WHERE ID = #{id}
     </select>
-    
+
     <select id="selectAllAdmin" resultType="Admin">
         SELECT ID
              , NAME
@@ -30,5 +30,30 @@
              , PASSWORD
           FROM ADMIN
     </select>
+
+    <insert id="createAdmin">
+        INSERT INTO
+            ADMIN(ID
+                 , NAME
+                 , EMAIL
+                 , PASSWORD)
+        VALUES (#{id}, #{name}, #{email}, #{password})
+    </insert>
+
+    <update id="updateAdmin">
+        UPDATE ADMIN
+        SET
+            NAME = #{admin.name}
+          , EMAIL = #{admin.email}
+          , PASSWORD = #{admin.password}
+        WHERE
+            ID = #{adminId}
+    </update>
+
+    <delete id="deleteAdmin">
+        DELETE FROM ADMIN
+        WHERE
+            ID = #{adminId}
+    </delete>
 
 </mapper>

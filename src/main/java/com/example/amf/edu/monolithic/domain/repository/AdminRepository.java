@@ -13,4 +13,10 @@ public interface AdminRepository {
 	Admin selectAdminByEmail(String email);
 	Admin selectAdminById(Long id);
 	List<Admin> selectAllAdmin();
+
+	Integer createAdmin(Admin admin);
+
+	Integer updateAdmin(Long adminId, Admin admin);
+
+	Integer deleteAdmin(Long adminId);
 }
