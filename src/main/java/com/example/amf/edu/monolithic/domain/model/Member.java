@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 public class Member {
 	private Long id;
 	private String name;
+	private Long teamId;
 	private String teamName;
 	private String role;
 }

@@ -16,4 +16,8 @@ public interface CourseRepository {
 	Course selectCourseById(Long id);
 	List<Subject> selectAllSubjectByCourseId(Long id);
 	List<Attendance> selectAllAttendanceByCourseId(Long id);
+
+	Integer createCourse(Course course);
+	Integer updateCourse(Long courseId, Course course);
+	Integer deleteCourse(Long courseId);
 }

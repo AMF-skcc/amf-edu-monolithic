@@ -23,7 +23,7 @@
 		ON A.ID = C.ADMIN_ID
          WHERE C.ID = #{id}
     </select>
-    
+
     <select id="selectAllSubjectByCourseId" resultType="Subject">
         SELECT C.ID AS COURSE_ID
              , C.NAME AS COURSE_NAME
@@ -59,4 +59,32 @@
 		ON M.ID = A.MEMBER_ID
          WHERE C.ID = #{id}
     </select>
+
+
+    <insert id="createCourse">
+        INSERT INTO
+            COURSE(ID
+                  , NAME
+                  , ADMIN_ID)
+        VALUES (
+                   #{id},
+                   #{name},
+                   #{adminId}
+               )
+    </insert>
+
+    <update id="updateCourse">
+        UPDATE COURSE
+        SET
+            NAME = #{course.name}
+          , ADMIN_ID = #{course.adminId}
+        WHERE
+            ID = #{courseId}
+    </update>
+
+    <delete id="deleteCourse">
+        DELETE FROM COURSE
+        WHERE
+            ID = #{courseId}
+    </delete>
 </mapper>

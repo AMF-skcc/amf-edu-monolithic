@@ -37,6 +37,9 @@ public class MemberRestController {
 
     @PutMapping("/member/{memberId}")
     public ResponseEntity<Member> updateMember(@RequestBody Member member, @PathVariable Long memberId) {
+        if (memberId == null || !memberId.equals(member.getId())) {
+            return ResponseEntity.badRequest().body(null);
+        }
         Member savedMember = memberService.updateMember(memberId, member);
         return ResponseEntity.ok().body(savedMember);
     }
