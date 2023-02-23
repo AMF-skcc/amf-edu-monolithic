@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.amf.edu.monolithic.domain.repository.InstructorRepository">
+
+    <select id="selectAllInstructor" resultType="Instructor">
+        SELECT ID
+             , NAME
+        FROM INSTRUCTOR
+    </select>
+
+    <select id="selectInstructorById" resultType="Instructor">
+        SELECT ID
+             , NAME
+        FROM INSTRUCTOR
+        WHERE A.ID = #{id}
+    </select>
+
+    <insert id="createInstructor">
+        INSERT INTO
+            INSTRUCTOR(ID
+                 , NAME)
+        VALUES (
+                #{id},
+                #{name}
+                )
+    </insert>
+
+    <update id="updateInstructor">
+        UPDATE INSTRUCTOR
+        SET
+            NAME = #{instructor.name}
+        WHERE
+            ID = #{instructorId}
+    </update>
+
+    <delete id="deleteInstructor">
+        DELETE FROM INSTRUCTOR
+        WHERE
+            ID = #{instructorId}
+    </delete>
+
+</mapper>
