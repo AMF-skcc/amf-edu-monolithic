@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.amf.edu.monolithic.domain.repository.SubjectRepository">
+
+    <select id="selectAllSubject" resultType="Subject">
+        SELECT C.ID AS COURSE_ID
+             , C.NAME AS COURSE_NAME
+             , S.ID
+             , S.NAME
+             , S.BUILDING
+             , S.FLOOR
+             , S.ROOM_NO
+             , I.ID AS INSTRUCTOR_ID
+             , I.NAME AS INSTRUCTOR_NAME
+             , A.ID AS ADMIN_ID
+             , A.NAME AS ADMIN_NAME
+        FROM COURSE C
+                 LEFT OUTER JOIN SUBJECT S
+                                 ON C.ID = S.COURSE_ID
+                 LEFT OUTER JOIN ADMIN A
+                                 ON A.ID = C.ADMIN_ID
+                 LEFT OUTER JOIN INSTRUCTOR I
+                                 ON I.ID = S.INSTRUCTOR_ID
+    </select>
+
+    <select id="selectSubjectById" resultType="Subject">
+        SELECT C.ID AS COURSE_ID
+             , C.NAME AS COURSE_NAME
+             , S.ID
+             , S.NAME
+             , S.BUILDING
+             , S.FLOOR
+             , S.ROOM_NO
+             , I.ID AS INSTRUCTOR_ID
+             , I.NAME AS INSTRUCTOR_NAME
+             , A.ID AS ADMIN_ID
+             , A.NAME AS ADMIN_NAME
+        FROM COURSE C
+                 LEFT OUTER JOIN SUBJECT S
+                                 ON C.ID = S.COURSE_ID
+                 LEFT OUTER JOIN ADMIN A
+                                 ON A.ID = C.ADMIN_ID
+                 LEFT OUTER JOIN INSTRUCTOR I
+                                 ON I.ID = S.INSTRUCTOR_ID
+        WHERE S.ID = #{id}
+    </select>
+
+    <insert id="createSubject">
+        INSERT INTO
+            Subject(ID
+                 , COURSE_ID
+                 , INSTRUCTOR_ID
+                 , NAME
+                 , BUILDING
+                 , FLOOR
+                 , ROOM_NO)
+        VALUES (
+                #{id},
+                #{courseId},
+                #{instructorId},
+                #{name},
+                #{building},
+                #{floor},
+                #{roomNo}
+                )
+    </insert>
+
+    <update id="updateSubject">
+        UPDATE Subject
+        SET
+            COURSE_ID = #{subject.courseId}
+          , INSTRUCTOR_ID = #{subject.instructorId}
+          , NAME = #{subject.name}
+          , BUILDING = #{subject.building}
+          , FLOOR = #{subject.floor}
+          , ROOM_NO = #{subject.roomNo}
+        WHERE
+            ID = #{SubjectId}
+    </update>
+
+    <delete id="deleteSubject">
+        DELETE FROM Subject
+        WHERE
+            ID = #{SubjectId}
+    </delete>
+
+</mapper>
