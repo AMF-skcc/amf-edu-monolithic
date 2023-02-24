@@ -1,15 +1,12 @@
 package com.example.amf.edu.monolithic.service.impl;
 
-import java.util.List;
-
-import com.example.amf.edu.monolithic.domain.model.Member;
-import org.springframework.stereotype.Service;
-
 import com.example.amf.edu.monolithic.domain.model.Member;
 import com.example.amf.edu.monolithic.domain.repository.MemberRepository;
 import com.example.amf.edu.monolithic.service.MemberService;
-
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @AllArgsConstructor

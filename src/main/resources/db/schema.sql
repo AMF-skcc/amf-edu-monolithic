@@ -53,6 +53,7 @@ create table member (
     email varchar(255),
     mobile varchar(255),
     team_id bigint,
+    password varchar(255),
     primary key (id)
 );
 
@@ -62,32 +63,32 @@ create table team (
     primary key (id)
 );
 
-alter table attendance 
-   add constraint FKmwxjtpjcf6y7m8x2jqeryj255 
-   foreign key (course_id) 
+alter table attendance
+   add constraint FKmwxjtpjcf6y7m8x2jqeryj255
+   foreign key (course_id)
    references course;
 
-alter table attendance 
-   add constraint FKghlbinj34ic6pwlx2nv1largn 
-   foreign key (member_id) 
+alter table attendance
+   add constraint FKghlbinj34ic6pwlx2nv1largn
+   foreign key (member_id)
    references member;
-   
-alter table course 
-   add constraint FK24rir1do7hc0pocea8yi4orn3 
-   foreign key (admin_id) 
+
+alter table course
+   add constraint FK24rir1do7hc0pocea8yi4orn3
+   foreign key (admin_id)
    references admin;
-    
-alter table subject 
-   add constraint FKnxhd764cm1ie783v26t3jsdlx 
-   foreign key (course_id) 
+
+alter table subject
+   add constraint FKnxhd764cm1ie783v26t3jsdlx
+   foreign key (course_id)
    references course;
-    
-alter table subject 
-   add constraint FKs18sipygps4106j8mxftfmfg6 
-   foreign key (instructor_id) 
+
+alter table subject
+   add constraint FKs18sipygps4106j8mxftfmfg6
+   foreign key (instructor_id)
    references instructor;
-       
-alter table member 
-   add constraint FKcjte2jn9pvo9ud2hyfgwcja0k 
-   foreign key (team_id) 
+
+alter table member
+   add constraint FKcjte2jn9pvo9ud2hyfgwcja0k
+   foreign key (team_id)
    references team;

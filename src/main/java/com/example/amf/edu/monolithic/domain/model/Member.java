@@ -13,4 +13,5 @@ public class Member {
 	private Long teamId;
 	private String teamName;
 	private String role;
+	private String password;
 }
