@@ -31,13 +31,12 @@
           FROM ADMIN
     </select>
 
-    <insert id="createAdmin">
+    <insert id="createAdmin" parameterType="Admin" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO
-            ADMIN(ID
-                 , NAME
+            ADMIN(NAME
                  , EMAIL
                  , PASSWORD)
-        VALUES (#{id}, #{name}, #{email}, #{password})
+        VALUES (#{name}, #{email}, #{password})
     </insert>
 
     <update id="updateAdmin">

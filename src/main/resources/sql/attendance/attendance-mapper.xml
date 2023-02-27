@@ -32,13 +32,11 @@
         WHERE A.ID = #{id}
     </select>
 
-    <insert id="createAttendance">
+    <insert id="createAttendance" parameterType="Attendance" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO
-            ATTENDANCE(ID
-                 , COURSE_ID
+            ATTENDANCE(COURSE_ID
                  , MEMBER_ID)
         VALUES (
-                #{id},
                 #{courseId},
                 #{memberId}
                 )

@@ -61,13 +61,11 @@
     </select>
 
 
-    <insert id="createCourse">
+    <insert id="createCourse"  parameterType="Course" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO
-            COURSE(ID
-                  , NAME
+            COURSE(NAME
                   , ADMIN_ID)
         VALUES (
-                   #{id},
                    #{name},
                    #{adminId}
                )

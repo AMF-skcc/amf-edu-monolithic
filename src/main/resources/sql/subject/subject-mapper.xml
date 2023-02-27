@@ -48,17 +48,15 @@
         WHERE S.ID = #{id}
     </select>
 
-    <insert id="createSubject">
+    <insert id="createSubject" parameterType="Subject" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO
-            Subject(ID
-                 , COURSE_ID
+            Subject(COURSE_ID
                  , INSTRUCTOR_ID
                  , NAME
                  , BUILDING
                  , FLOOR
                  , ROOM_NO)
         VALUES (
-                #{id},
                 #{courseId},
                 #{instructorId},
                 #{name},
