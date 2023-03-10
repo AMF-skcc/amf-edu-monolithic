@@ -54,4 +54,17 @@ public class AdminServiceImpl implements AdminService {
 		return result != null && 0 != result;
 	}
 
+	@Override
+	public Admin adminLogin(Admin qAdmin){
+
+		Admin admin = selectAdminByEmail(qAdmin.getEmail());
+
+		if(!qAdmin.getPassword().equals(admin.getPassword())){
+			throw new RuntimeException("로그인 실패");
+		}
+		admin.erasePassword();
+		return admin;
+
+	}
+
 }

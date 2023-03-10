@@ -13,4 +13,8 @@ public interface MemberService {
 	Member updateMember(Long memberId, Member member);
 
 	Boolean deleteMember(Long memberId);
+
+	Member selectMemberByEmail(String email);
+
+	Member memberLogin(Member member);
 }

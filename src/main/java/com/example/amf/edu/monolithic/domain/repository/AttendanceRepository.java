@@ -11,6 +11,7 @@ import java.util.List;
 public interface AttendanceRepository {
 	List<Attendance> selectAllAttendance();
 	Attendance selectAttendanceById(Long id);
+	List<Attendance> selectAttendanceByMemberId(Long memberId);
 
     Integer createAttendance(Attendance attendance);
 

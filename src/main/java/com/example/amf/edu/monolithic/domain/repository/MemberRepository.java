@@ -18,4 +18,6 @@ public interface MemberRepository {
 	Integer updateMember(Long memberId, Member member);
 
 	Integer deleteMember(Long memberId);
+
+	Member selectMemberByEmail(String email);
 }

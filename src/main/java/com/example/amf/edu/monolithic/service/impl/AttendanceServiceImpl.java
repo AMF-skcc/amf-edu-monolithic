@@ -24,6 +24,11 @@ public class AttendanceServiceImpl implements AttendanceService {
 	}
 
 	@Override
+	public List<Attendance> selectAttendanceByMemberId(Long memberId) {
+		return attendanceRepository.selectAttendanceByMemberId(memberId);
+	}
+
+	@Override
 	public Attendance createAttendance(Attendance attendance) {
 		Integer result = attendanceRepository.createAttendance(attendance);
 		if (result == null || 0 == result) {

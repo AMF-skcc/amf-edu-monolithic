@@ -32,6 +32,20 @@
         WHERE A.ID = #{id}
     </select>
 
+    <select id="selectAttendanceByMemberId" resultType="Attendance">
+        SELECT A.ID
+             , C.ID AS COURSE_ID
+             , C.NAME AS COURSE_NAME
+             , M.ID AS MEMBER_ID
+             , M.NAME AS MEMBER_NAME
+        FROM ATTENDANCE A
+                 INNER JOIN COURSE C
+                            ON C.ID = A.COURSE_ID
+                 INNER JOIN MEMBER M
+                            ON M.ID = A.MEMBER_ID
+        WHERE A.MEMBER_ID = #{memberId}
+    </select>
+
     <insert id="createAttendance">
         INSERT INTO
             ATTENDANCE(ID

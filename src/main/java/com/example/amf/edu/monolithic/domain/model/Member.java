@@ -13,5 +13,12 @@ public class Member {
 	private Long teamId;
 	private String teamName;
 	private String role;
+	private String email;
+	private String mobile;
 	private String password;
+
+	public void erasePassword(){
+		this.password=null;
+	}
+
 }

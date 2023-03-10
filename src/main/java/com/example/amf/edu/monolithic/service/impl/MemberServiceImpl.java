@@ -47,4 +47,22 @@ public class MemberServiceImpl implements MemberService {
 		return result != null && 0 != result;
 	}
 
+	@Override
+	public Member selectMemberByEmail(String email){
+		return memberRepository.selectMemberByEmail(email);
+	}
+
+	@Override
+	public Member memberLogin(Member qMember){
+
+		Member member = memberRepository.selectMemberByEmail(qMember.getEmail());
+
+		if(!qMember.getPassword().equals(member.getPassword())){
+			throw new RuntimeException("로그인 실패");
+		}
+		member.erasePassword();
+		return member;
+
+	}
+
 }

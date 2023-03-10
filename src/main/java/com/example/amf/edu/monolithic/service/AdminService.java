@@ -14,4 +14,6 @@ public interface AdminService {
 	Admin updateAdmin(Long adminId, Admin admin);
 
 	Boolean deleteAdmin(Long adminId);
+
+	Admin adminLogin(Admin qAdmin);
 }

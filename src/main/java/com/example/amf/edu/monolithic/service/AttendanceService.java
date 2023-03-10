@@ -8,6 +8,8 @@ public interface AttendanceService {
 	List<Attendance> selectAllAttendances();
 	Attendance selectAttendanceById(Long id);
 
+	List<Attendance> selectAttendanceByMemberId(Long memberId);
+
     Attendance createAttendance(Attendance attendance);
 
 	Attendance updateAttendance(Long attendanceId, Attendance attendance);
