@@ -30,16 +30,14 @@
          WHERE M.ID = #{id}
     </select>
 
-    <insert id="createMember">
+    <insert id="createMember" parameterType="Member" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO
-            MEMBER(ID
-                 , NAME
+            MEMBER(NAME
                  , TEAM_ID
                  , ROLE
                  , EMAIL
                  , PASSWORD)
         VALUES (
-                #{id},
                 #{name},
                 #{teamId},
                 #{role},

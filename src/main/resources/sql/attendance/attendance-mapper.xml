@@ -48,11 +48,9 @@
 
     <insert id="createAttendance">
         INSERT INTO
-            ATTENDANCE(ID
-                 , COURSE_ID
+            ATTENDANCE(COURSE_ID
                  , MEMBER_ID)
         VALUES (
-                #{id},
                 #{courseId},
                 #{memberId}
                 )

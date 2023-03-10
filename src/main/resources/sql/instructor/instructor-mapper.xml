@@ -18,12 +18,10 @@
         WHERE A.ID = #{id}
     </select>
 
-    <insert id="createInstructor">
+    <insert id="createInstructor" parameterType="Instructor" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO
-            INSTRUCTOR(ID
-                 , NAME)
+            INSTRUCTOR(NAME)
         VALUES (
-                #{id},
                 #{name}
                 )
     </insert>

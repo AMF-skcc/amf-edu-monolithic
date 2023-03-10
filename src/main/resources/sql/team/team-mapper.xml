@@ -18,12 +18,10 @@
         WHERE A.ID = #{id}
     </select>
 
-    <insert id="createTeam">
+    <insert id="createTeam" parameterType="Team" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO
-            TEAM(ID
-                 , NAME)
+            TEAM(NAME)
         VALUES (
-                #{id},
                 #{name}
                 )
     </insert>
